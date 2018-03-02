@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
         //设置用户名
         user.setName(uName);
         //设置用户昵称
-        user.setPass(uNick);
+        user.setNick(uNick);
         //设置用户密码
         user.setPass(uPass);
         //插入用户数据

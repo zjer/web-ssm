@@ -11,7 +11,7 @@ function userRegist() {
     var $userNick = $("#userNick");
     var $userPass = $("#userPass");
     var $rUserPass = $("#rUserPass");
-    //对用户名，密码，确认密码获取焦点进行验证
+    //对用户名，昵称，密码，确认密码获取焦点进行验证
     $(".form-items input").focus(function () {
         $(this).parent().addClass("onfocus");
     });
@@ -21,7 +21,7 @@ function userRegist() {
     $rUserPass.attr("disabled", true);
     $doRegist.attr("disabled", true);
     $doReset.attr("disabled", true);
-    //对用户名，密码，确认密码失去焦点进行验证
+    //对用户名，昵称，密码，确认密码失去焦点进行验证
     $userName.blur(function () {
         //添加标识符
         var $status = $(this).next();
@@ -56,13 +56,13 @@ function userRegist() {
         //获取错误提示
         var $msg = $(this).parent().next();
         $msg.text("").hide(500);
-        //获取用户名
-        var $name = $userNick.val().trim();
-        if ($name == "") {
+        //获取昵称
+        var $nick = $userNick.val().trim();
+        if ($nick == "") {
             $status.addClass("icon-warning");
             $(this).parent().addClass("haserr");
             $msg.text("昵称不能为空").show(500);
-        } else if ($name.length > 5) {
+        } else if ($nick.length > 5) {
             $status.addClass("icon-warning");
             $(this).parent().addClass("haserr");
             $msg.text("昵称长度不超过5个字符").show(500);
@@ -129,8 +129,8 @@ function userRegist() {
     $doRegist.click(function () {
         //获取数据
         var $name = $userName.val().trim();
-        var $pass = $userPass.val().trim();
         var $nick = $userNick.val().trim();
+        var $pass = $userPass.val().trim();
         //Ajax验证
         $.ajax({
             url: path+"/user/add.do",
@@ -159,10 +159,10 @@ function userLogin() {
     //获取相关参数
     var $doLogin = $("#doLogin");
     var $doReset = $("#doReset");
-    //获取用户名，密码，确认密码
+    //获取用户名，密码
     var $userName = $("#userName");
     var $userPass = $("#userPass");
-    //对用户名，密码，确认密码获取焦点进行验证
+    //对用户名，密码获取焦点进行验证
     $(".form-items input").focus(function () {
         $(this).parent().addClass("onfocus");
     });
@@ -170,7 +170,7 @@ function userLogin() {
     $userPass.attr("disabled", true);
     $doLogin.attr("disabled", true);
     $doReset.attr("disabled", true);
-    //对用户名，密码，确认密码失去焦点进行验证
+    //对用户名，密码失去焦点进行验证
     $userName.blur(function () {
         //添加标识符
         var $status = $(this).next();
