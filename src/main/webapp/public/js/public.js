@@ -218,21 +218,15 @@ function userLogin() {
                     //将用户信息保存到Cookie里
                     var cookieId = resultUtil.id;
                     addCookie("cookieId", cookieId, 10);
-                    showTips(resultUtil.msg, "index.html");
+                    if ($name == "admin") {
+                        showTips(resultUtil.msg, "cms/index.html");
+                    } else {
+                        showTips(resultUtil.msg, "static/index.html");
+                    }
                 }
             }
         })
     });
-}
-
-
-//判断是否登陆
-function checkSign() {
-    //获取cookieId
-    var cookies = getCookie("cookieId");
-    if (!cookies) {
-        showTips("您还未登录，请前往登陆！", "login.html");
-    }
 }
 
 //弹窗提示
@@ -245,5 +239,5 @@ function showTips(tips, newHref) {
     setTimeout(function () {
         $(".tips").hide();
         location.href = newHref;
-    }, 5000);
+    }, 3000);
 }

@@ -51,8 +51,8 @@ body {
 }
 .sign .sign-box {
     width: 320px;
-    height: 400px;
-    margin: calc((100vh - 400px) * 0.5) auto;
+    height: 360px;
+    margin: calc((100vh - 360px) * 0.5) auto;
     background-color: #ffffff;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -192,17 +192,7 @@ body {
     color: #66b1ff;
 }
 
-
-
-
-
-
-
-
-
-
-
-    /*index*/
+/*mask*/
 .tips {
     width: 200px;
     height: 50px;
