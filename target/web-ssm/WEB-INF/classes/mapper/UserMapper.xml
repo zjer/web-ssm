@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ssm.dao.UserDao">
+    <!--注册-->
+    <insert id="save" parameterType="com.ssm.entity.User">
+        INSERT INTO user VALUES (#{id}, #{name}, #{pass}, #{enrolldate})
+    </insert>
+
+    <!--登陆-->
+    <select id="findByName" parameterType="string" resultType="com.ssm.entity.User">
+        SELECT * FROM user WHERE name = #{name}
+    </select>
+</mapper>

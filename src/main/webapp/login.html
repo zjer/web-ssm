@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+    <link rel="stylesheet" href="css/iconfont.css">
+    <link rel="stylesheet" href="css/css.css">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="js/cookie.js"></script>
+    <script src="js/js.js"></script>
+</head>
+<body>
+<div class="sign">
+    <div class="sign-box">
+        <h2>用户登陆</h2>
+        <ul class="form-items">
+            <li class="form-item">
+                <div class="input-box">
+                    <i class="iconfont icon-people"></i>
+                    <input type="text" name="userName" placeholder="请输入用户名" maxlength="10" id="userName" autofocus>
+                    <i class='iconfont status'></i>
+                </div>
+                <span class="msg"></span>
+            </li>
+            <li class="form-item">
+                <div class="input-box">
+                    <i class="iconfont icon-lock"></i>
+                    <input type="password" name="userPass" placeholder="请输入密码" maxlength="15" id="userPass">
+                    <i class='iconfont status'></i>
+                </div>
+                <span class="msg"></span>
+            </li>
+            <li class="form-item">
+                <div class="input-btn">
+                    <button type="submit" class="submit" id="doLogin">登陆</button>
+                    <button type="reset" class="reset" id="doReset">重置</button>
+                </div>
+            </li>
+            <li class="form-item">
+                <div class="goto">没有账号？前去<a href="regist.html">注册</a></div>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+<script>
+    userLogin();
+</script>
+</html>
