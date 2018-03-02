@@ -5,7 +5,7 @@
 <mapper namespace="com.ssm.dao.UserDao">
     <!--注册-->
     <insert id="save" parameterType="com.ssm.entity.User">
-        INSERT INTO user VALUES (#{id}, #{name}, #{pass}, #{enrolldate})
+        INSERT INTO user VALUES (#{id}, #{name}, #{nick}, #{pass}, #{enrolldate})
     </insert>
 
     <!--登陆-->

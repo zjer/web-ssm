@@ -9,7 +9,7 @@ import com.ssm.util.ResultUtil;
  */
 public interface UserService {
     //注册模块
-    public ResultUtil<Object> addUser(String uName, String uPass);
+    public ResultUtil<Object> addUser(String uName, String uNick, String uPass);
 
     //登录模块
     public ResultUtil<User> checkLogin(String uName, String uPass);

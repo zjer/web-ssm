@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService {
     @Resource
     private UserDao userDao;
     //注册
-    public ResultUtil<Object> addUser(String uName, String uPass) {
+    public ResultUtil<Object> addUser(String uName, String uNick, String uPass) {
         //接收结果数据
         ResultUtil<Object> resultUtil = new ResultUtil<Object>();
         //检测用户名是否被占用
@@ -33,6 +33,8 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         //设置用户名
         user.setName(uName);
+        //设置用户昵称
+        user.setPass(uNick);
         //设置用户密码
         user.setPass(uPass);
         //插入用户数据
@@ -40,6 +42,7 @@ public class UserServiceImpl implements UserService {
         //构建返回结果
         resultUtil.setStatus(0);
         resultUtil.setMsg("注册成功!");
+        resultUtil.setData(user);
         return resultUtil;
     }
 

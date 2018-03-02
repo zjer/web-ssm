@@ -10,6 +10,7 @@ import java.sql.Timestamp;
 public class User implements Serializable {
     private Integer id;
     private String name;
+    private String nick;
     private String pass;
     private Timestamp enrolldate;
 
@@ -27,6 +28,14 @@ public class User implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getNick() {
+        return nick;
+    }
+
+    public void setNick(String nick) {
+        this.nick = nick;
     }
 
     public String getPass() {
@@ -50,6 +59,7 @@ public class User implements Serializable {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", nick='" + nick + '\'' +
                 ", pass='" + pass + '\'' +
                 ", enrolldate=" + enrolldate +
                 '}';

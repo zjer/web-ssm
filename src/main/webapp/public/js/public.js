@@ -6,8 +6,9 @@ function userRegist() {
     //获取相关参数
     var $doRegist = $("#doRegist");
     var $doReset = $("#doReset");
-    //获取用户名，密码，确认密码
+    //获取用户名，昵称，密码，确认密码
     var $userName = $("#userName");
+    var $userNick = $("#userNick");
     var $userPass = $("#userPass");
     var $rUserPass = $("#rUserPass");
     //对用户名，密码，确认密码获取焦点进行验证
@@ -15,6 +16,7 @@ function userRegist() {
         $(this).parent().addClass("onfocus");
     });
     //设置默认不可点
+    $userNick.attr("disabled", true);
     $userPass.attr("disabled", true);
     $rUserPass.attr("disabled", true);
     $doRegist.attr("disabled", true);
@@ -39,6 +41,31 @@ function userRegist() {
             $status.addClass("icon-warning");
             $(this).parent().addClass("haserr");
             $msg.text("用户名长度在5-10个字符").show(500);
+        } else {
+            $status.addClass("icon-success");
+            $(this).parent().addClass("isok");
+            $userNick.attr("disabled", false);
+        }
+    });
+    $userNick.blur(function () {
+        //添加标识符
+        var $status = $(this).next();
+        //失去焦点更换样式
+        $(this).parent().removeClass("onfocus");
+        $status.removeClass("icon-warning");
+        //获取错误提示
+        var $msg = $(this).parent().next();
+        $msg.text("").hide(500);
+        //获取用户名
+        var $name = $userNick.val().trim();
+        if ($name == "") {
+            $status.addClass("icon-warning");
+            $(this).parent().addClass("haserr");
+            $msg.text("昵称不能为空").show(500);
+        } else if ($name.length > 5) {
+            $status.addClass("icon-warning");
+            $(this).parent().addClass("haserr");
+            $msg.text("昵称长度不超过5个字符").show(500);
         } else {
             $status.addClass("icon-success");
             $(this).parent().addClass("isok");
@@ -103,11 +130,12 @@ function userRegist() {
         //获取数据
         var $name = $userName.val().trim();
         var $pass = $userPass.val().trim();
+        var $nick = $userNick.val().trim();
         //Ajax验证
         $.ajax({
             url: path+"/user/add.do",
             type: "post",
-            data: {"uName": $name, "uPass": $pass},
+            data: {"uName": $name, "uNick": $nick, "uPass": $pass},
             dataType: "json",
             success: function (resultUtil) {
                 //注册验证
@@ -215,14 +243,19 @@ function userLogin() {
                     $userName.next().removeClass("icon-warning").addClass("icon-success");
                     $userName.parent().removeClass("haserr").addClass("isok");
                     $userName.parent().next().text("");
-                    //将用户信息保存到Cookie里
-                    var cookieId = resultUtil.id;
-                    addCookie("cookieId", cookieId, 10);
                     if ($name == "admin") {
+                        //将用户信息保存到Cookie里
+                        var cookieId = "static";
+                        addCookie("cookieId", cookieId, 10);
                         showTips(resultUtil.msg, "cms/index.html");
                     } else {
+                        //将用户信息保存到Cookie里
+                        var cookieId = "cms";
+                        addCookie("cookieId", cookieId, 10);
                         showTips(resultUtil.msg, "static/index.html");
                     }
+                    //将用户昵称保存到Cookie里
+                    addCookie("cookieNick", resultUtil.data.nick, 10);
                 }
             }
         })

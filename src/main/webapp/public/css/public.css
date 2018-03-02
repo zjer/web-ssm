@@ -51,8 +51,8 @@ body {
 }
 .sign .sign-box {
     width: 320px;
-    height: 360px;
-    margin: calc((100vh - 360px) * 0.5) auto;
+    height: 400px;
+    margin: calc((100vh - 400px) * 0.5) auto;
     background-color: #ffffff;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;

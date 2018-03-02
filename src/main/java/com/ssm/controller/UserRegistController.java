@@ -21,10 +21,10 @@ public class UserRegistController {
 
     @RequestMapping("/add.do")//匹配请求
     @ResponseBody//使用json结果输出
-    public ResultUtil<Object> execute(String uName, String uPass) {
-        System.out.println(uName + " ," + uPass);
+    public ResultUtil<Object> execute(String uName, String uNick, String uPass) {
+        System.out.println(uName + " ," + uNick + " ," + uPass);
         //调用UserService处理登录请求
-        ResultUtil<Object> resultUtil = userService.addUser(uName, uPass);
+        ResultUtil<Object> resultUtil = userService.addUser(uName, uNick, uPass);
         return resultUtil;
     }
 }
