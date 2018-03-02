@@ -1,5 +1,13 @@
 @charset "UTF-8";
 
+header {
+    width: 100%;
+    height: 60px;
+    background-color: #232332;
+    position: relative;
+    display: block;
+    color: #bdc3c7;
+}
 
 
 
