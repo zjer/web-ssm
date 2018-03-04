@@ -192,6 +192,20 @@ body {
     color: #66b1ff;
 }
 
+/*公共样式*/
+.wrap {
+    clear: both;
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
 /*mask*/
 .tips {
     width: 200px;

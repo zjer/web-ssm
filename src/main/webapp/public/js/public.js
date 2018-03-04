@@ -13,7 +13,9 @@ function userRegist() {
     var $rUserPass = $("#rUserPass");
     //对用户名，昵称，密码，确认密码获取焦点进行验证
     $(".form-items input").focus(function () {
-        $(this).parent().addClass("onfocus");
+        $(this).parent().removeClass("haserr").addClass("onfocus");
+        $(this).next().removeClass("icon-warning");
+        $(this).parent().next().text("");
     });
     //设置默认不可点
     $userNick.attr("disabled", true);
@@ -164,7 +166,9 @@ function userLogin() {
     var $userPass = $("#userPass");
     //对用户名，密码获取焦点进行验证
     $(".form-items input").focus(function () {
-        $(this).parent().addClass("onfocus");
+        $(this).parent().removeClass("haserr").addClass("onfocus");
+        $(this).next().removeClass("icon-warning");
+        $(this).parent().next().text("");
     });
     //设置默认不可点
     $userPass.attr("disabled", true);
@@ -245,12 +249,12 @@ function userLogin() {
                     $userName.parent().next().text("");
                     if ($name == "admin") {
                         //将用户信息保存到Cookie里
-                        var cookieId = "static";
+                        var cookieId = "cms";
                         addCookie("cookieId", cookieId, 10);
                         showTips(resultUtil.msg, "cms/index.html");
                     } else {
                         //将用户信息保存到Cookie里
-                        var cookieId = "cms";
+                        var cookieId = "static";
                         addCookie("cookieId", cookieId, 10);
                         showTips(resultUtil.msg, "static/index.html");
                     }
