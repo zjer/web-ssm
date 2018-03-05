@@ -9,31 +9,5 @@ function checkSign() {
     }
     //获取昵称
     var nicks = getCookie("cookieNick");
-    $(".profile-username").text(nicks);
+    $("#nick").text(nicks);
 }
-
-//设置操作
-function doSet() {
-    //获取相关元素
-    var $set = $(".header-set");
-    var $dropToggle = $(".dropdown-toggle");
-    var $dropMenu = $(".dropdown-menu");
-    //下拉
-    $dropToggle.click(function () {
-        if ($set.hasClass("open")) {
-            $set.removeClass("open");
-            $dropMenu.slideUp(500);
-        } else {
-            $set.addClass("open");
-            $dropMenu.slideDown(500);
-        }
-    });
-
-    //退出登录
-    var $logout = $("#logout");
-    $logout.click(function () {
-        delCookie("cookieId");
-        location.href = path+"/login.html";
-    });
-}
-
